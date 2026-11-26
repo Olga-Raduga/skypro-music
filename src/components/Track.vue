@@ -36,53 +36,29 @@ alt=""
 <style scoped>
 .playlist__item {
   width: 100%;
-  display: block;
+  min-width: 0;
   margin-bottom: 12px;
 }
 
 .playlist__track {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1.45fr) minmax(0, 1fr) minmax(100px, 0.85fr);
+  gap: 12px;
   align-items: center;
+  width: 100%;
+  min-width: 620px;
 }
 .track__title {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  width: 447px;
+  width: auto;
+  min-width: 0;
 }
 
 .track__title-image {
+  flex: 0 0 51px;
   width: 51px;
   height: 51px;
-  padding: 16px;
-  background: #313131;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
   margin-right: 17px;
 }
 
@@ -94,10 +70,10 @@ alt=""
 }
 
 .track__title-link {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   color: #ffffff;
 }
 
@@ -110,22 +86,17 @@ alt=""
 }
 
 .track__author {
-  width: 321px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
+   display: block;
+  width: auto;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .track__author-link {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  color: #ffffff;
-  text-align: left;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .track__album {
@@ -147,7 +118,16 @@ alt=""
   fill: transparent;
   stroke: #696969;
 }
-
+.track__date {
+  min-width: 0;
+  color: #696969;
+  white-space: nowrap;
+}
+.track__time {
+  min-width: 100px;
+  text-align: right;
+  white-space: nowrap;
+}
 .track__time-text {
   font-style: normal;
   font-weight: 400;

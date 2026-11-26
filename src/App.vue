@@ -27,8 +27,12 @@ const playlistImages = [
     <main class="main">
       <Navbar />
       <section class="main__centerblock centerblock">
-        <FilterControls v-model:search="search" />
-        <h1 class="centerblock__h2">Треки</h1>
+        <FilterControls v-model:search="search">
+        <template #title>
+          <h1 class="centerblock__h2">Треки</h1>
+        </template>
+        </FilterControls>
+        
         <Playlist
           id="tracks"
           :tracks="visibleTracks"
@@ -36,7 +40,9 @@ const playlistImages = [
       </section>
       <aside id="playlists" class="main__sidebar sidebar">
         <div class="sidebar__personal">
-          <p class="sidebar__personal-name">Skypro.Music</p>
+          <button type="button" class="sidebar__icon" aria-label="Выйти">
+            <img src="/img/icon/logout.png" alt="Выйти" />
+          </button>
         </div>
         <div class="sidebar__list">
           <div
@@ -68,25 +74,20 @@ const playlistImages = [
   padding-bottom: 78px;
 }
 .main__centerblock {
-  -webkit-box-flex: 1;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
+   min-width: 0;
   display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  padding: 20px 40px 20px 111px;
 }
 .centerblock__h2 {
-  font-style: normal;
-  font-weight: 400;
+  margin: 0 0 45px;
+  align-self: flex-start;
   font-size: 64px;
+  font-weight: 400;
   line-height: 72px;
   letter-spacing: -0.8px;
-  margin-bottom: 45px;
 }
 .main__sidebar {
   max-width: 418px;
@@ -124,6 +125,8 @@ const playlistImages = [
   background-color: #313131;
   border-radius: 50%;
   cursor: pointer;
+  border: none;
+  background-color: transparent;
 }
 
 .sidebar__block {

@@ -24,7 +24,7 @@ const isMenuOpen = ref(true)
           <a href="#top" class="menu__link">Главное</a>
         </li>
         <li class="menu__item">
-          <a href="#playlists" class="menu__link">Мой плейлист</a>
+          <a href="#playlists" class="menu__link">Мои треки</a>
         </li>
       </ul>
     </div>
@@ -37,11 +37,17 @@ const isMenuOpen = ref(true)
   padding: 20px 0 20px 36px;
 }
 .nav__logo {
+  display: block;
   width: 113.33px;
   height: 43px;
-  padding: 13px 0 13px 0;
+  padding: 13px 0;
   background-color: transparent;
   margin-bottom: 20px;
+}
+.logo__image {
+  display: block;
+  width: 113.33px;
+  height: 17px;
 }
 
 .nav__burger {

@@ -8,7 +8,7 @@ const props = defineProps({
 const emit = defineEmits(['update:search'])
 </script>
 <template>
-  <div>
+  <div class="filter-controls">
     <label class="centerblock__search search">
       <img
         class="search__svg"
@@ -23,6 +23,7 @@ const emit = defineEmits(['update:search'])
         @input="emit('update:search', $event.target.value)"
       >
     </label>
+    <slot name="title"></slot>
     <div class="centerblock__filter filter">
       <span class="filter__title">Искать по:</span>
       <button type="button" class="filter__button _btn-text">
@@ -38,6 +39,10 @@ const emit = defineEmits(['update:search'])
   </div>
 </template>
 <style scoped>
+.filter-controls {
+  width: 100%;
+  min-width: 0;
+}
 .centerblock__search {
   width: 100%;
   border-bottom: 1px solid #4e4e4e;

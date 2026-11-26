@@ -9,12 +9,15 @@ defineProps({
 </script>
 <template>
   <section class="centerblock__content playlist-content">
-    <div class="content__title playlist-title">
-      <div class="playlist-title__col col01">Трек</div>
-      <div class="playlist-title__col col02">Исполнитель</div>
-      <div class="playlist-title__col col03">Дата</div>
-      <div class="playlist-title__col col04">Длительность</div>
+    <div class="playlist-scroll">
+      <div class="content__title playlist-title">
+        <div class="playlist-title__col col01">Трек</div>
+        <div class="playlist-title__col col02">Исполнитель</div>
+        <div class="playlist-title__col col03">Дата</div>
+        <div class="playlist-title__col col04">Длительность</div>
+      </div>
     </div>
+    
     <div class="content__playlist playlist">
       <Track
         v-for="track in tracks"
@@ -29,38 +32,34 @@ defineProps({
 </template>
 <style scoped>
 .centerblock__content {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
+  width: 100%;
+  min-width: 0;
+}
+.playlist-scroll {
+  width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+}
+.content__title,
+.content__playlist {
+  width: 100%;
+  min-width: 620px;
 }
 .content__title {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1.45fr) minmax(0, 1fr) minmax(100px, 0.85fr);
+  gap: 12px;
   align-items: center;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
   margin-bottom: 24px;
 }
 .playlist-title__col {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: 2px;
-  color: #696969;
-  text-transform: uppercase;
+  min-width: 0;
+}
+.col04 {
+  text-align: right;
+  white-space: nowrap;
 }
 
 .playlist-title__svg {
@@ -70,12 +69,7 @@ defineProps({
   stroke: #696969;
 }
 .content__playlist {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
   overflow-y: auto;
 }
